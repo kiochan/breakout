@@ -86,14 +86,14 @@ game =
     document.body.style.backgroundColor = c.bgColor
     document.body.style.overflow = 'hidden'
     for o of stage then stage[o].create()
-    window.requestAnimationFrame updateFrame
     ui.score.dom.style.left = 'auto'
     ui.life.dom.style.left = ui.score.dom.style.right = px 5
     ui.life.dom.style.top = ui.score.dom.style.top = px height() - 100
     ui.life.dom.style.color = ui.score.dom.style.color = c.fgColor
     ui.life.dom.style.position = ui.score.dom.style.position = 'absolute'
     ui.score.print 'CLICK TO START THE GAME'; ui.score.print '0 <- SCORE'
-    for o in [ui.life.dom, ui.score.dom] then append o; return this
+    for o in [ui.life.dom, ui.score.dom] then append o
+    window.requestAnimationFrame updateFrame; return this
   start : ->
     status.playing = yes; stage.ball.vector.change(-1,-1,status.speed)
     status.life = 5; status.score = 0

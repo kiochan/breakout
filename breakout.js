@@ -307,7 +307,6 @@
       for (o in stage) {
         stage[o].create();
       }
-      window.requestAnimationFrame(updateFrame);
       ui.score.dom.style.left = 'auto';
       ui.life.dom.style.left = ui.score.dom.style.right = px(5);
       ui.life.dom.style.top = ui.score.dom.style.top = px(height() - 100);
@@ -319,8 +318,9 @@
       for (j = 0, len1 = ref.length; j < len1; j++) {
         o = ref[j];
         append(o);
-        return this;
       }
+      window.requestAnimationFrame(updateFrame);
+      return this;
     },
     start: function() {
       status.playing = true;
