@@ -57,8 +57,8 @@ class Box
   hide : -> @live = no; @dom.style.display = 'none'; return this
   show : -> @live = yes; @dom.style.display = 'block'; return this
   update : ->
-    for p, v of {width: @width, left: @x} then @dom.style[p] = px v
-    for p, v of {height: @height, top: @y} then @dom.style[p] = px v
+    (for p,v of {width: @width, left: @x} then @dom.style[p]=px v); return this
+    (for p,v of {height: @height, top: @y} then @dom.style[p]=px v); return this
     return this
 
 # stage object
